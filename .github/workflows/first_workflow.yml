@@ -10,7 +10,11 @@ jobs:
       - name: Command in Multiline
         run: |
           node -v
+
           npm -v
+
           cat /etc/os-release
+
           cat /etc/hostname
+          
           cat /etc/hosts

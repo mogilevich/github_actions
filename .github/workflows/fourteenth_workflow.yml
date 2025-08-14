@@ -1,0 +1,21 @@
+name: Fourteenth Workflow
+on: workflow_dispatch
+
+jobs:
+  first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Cache node_modules
+        id: cache-step
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-cache-file-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cache-file-
+            ${{ runner.os }}-
+      - name: Display Cache
+        run: echo '${{ toJSON(steps.cache-step.outputs) }}'
+      - name: Install node_modules
+        run: npm install

@@ -9,6 +9,6 @@ on:
         required: false
 jobs:
   call-workflow:
-    uses: ./.github/workflows/workflow.yml
+    uses: ./.github/workflows/workflow.yml@main
     with:
       title: ${{ inputs.title }}

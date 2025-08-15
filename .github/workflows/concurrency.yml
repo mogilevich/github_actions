@@ -1,0 +1,10 @@
+name: Concurrency Timeout
+on: workflow_dispatch
+
+jobs:
+    test-timeout:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Sleep step
+              run: sleep 50
+              timeout-minutes: 1
